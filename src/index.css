@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #09090b;
+    color: #e4e4e7;
+    overflow-x: hidden;
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom hairline borders and dark mode precision */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bg-grid-subtle {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Day Mode / Light Theme (Minimalista, Ejecutivo y Alto Contraste)
+   ========================================================================== */
+
+html.light,
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  color-scheme: light;
+}
+
+/* Hairline borders en modo día */
+html.light .hairline-border {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .hairline-border-b {
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .hairline-border-t {
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Grilla sutil arquitectónica en modo día */
+html.light .bg-grid-subtle {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+}
+
+/* Secciones y fondos principales pasan a gris claro tiza (#f8fafc) */
+html.light section,
+html.light main,
+html.light .bg-\[\#09090b\],
+html.light .bg-\[\#09090b\]\/90,
+html.light .bg-\[\#09090b\]\/95 {
+  background-color: #f8fafc !important;
+}
+
+/* Header superior en modo día */
+html.light header {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light header a.text-white {
+  color: #09090b !important;
+}
+
+html.light header nav a {
+  color: #475569 !important;
+}
+
+html.light header nav a:hover {
+  color: #09090b !important;
+}
+
+/* Tarjetas y Bento Boxes principales (blanco puro con relieve nítido) */
+html.light [class*="bg-zinc-950"] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Superficies secundarias (bloques de PIN, inputs, tarjetas secundarias) */
+html.light [class*="bg-zinc-900"] {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Superficies terciarias y botones secundarios */
+html.light [class*="bg-zinc-800"] {
+  background-color: #e2e8f0 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA Y CONTRASTE EN MODO DÍA (100% Legible)
+   ========================================================================== */
+
+/* Todos los encabezados h1, h2, h3, h4 */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #09090b !important;
+}
+
+/* Textos blancos pasan a negro azabache de alta legibilidad */
+html.light .text-white {
+  color: #09090b !important;
+}
+
+/* Escala de grises secundaria */
+html.light .text-zinc-100,
+html.light .text-zinc-200,
+html.light .text-zinc-300 {
+  color: #18181b !important;
+}
+
+html.light .text-zinc-400 {
+  color: #3f3f46 !important;
+}
+
+html.light .text-zinc-500 {
+  color: #52525b !important;
+}
+
+/* Bordes en escala de grises para modo día */
+html.light [class*="border-white/"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==========================================================================
+   EXCEPCIONES DONDE EL TEXTO DEBE PERMANECER BLANCO
+   ========================================================================== */
+
+/* Botones principales con fondo verde esmeralda corporativo */
+html.light button.bg-\[\#00796b\],
+html.light button.bg-\[\#00796b\] *,
+html.light a.bg-\[\#00796b\],
+html.light a.bg-\[\#00796b\] *,
+html.light button.bg-\[\#00695c\],
+html.light button.bg-\[\#00695c\] *,
+html.light a.bg-\[\#00695c\],
+html.light a.bg-\[\#00695c\] * {
+  color: #ffffff !important;
+}
+
+/* Botón Google Play en Hero */
+html.light .hero-play-button {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15) !important;
+}
+html.light .hero-play-button:hover {
+  background-color: #18181b !important;
+}
+html.light .hero-play-button span,
+html.light .hero-play-button svg,
+html.light .hero-play-button svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Botón CTA en TariffEstimator */
+html.light .tariff-cta-button {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+html.light .tariff-cta-button:hover {
+  background-color: #18181b !important;
+}
+html.light .tariff-cta-button span,
+html.light .tariff-cta-button svg {
+  color: #ffffff !important;
+}
+
+/* Pestañas seleccionadas (Active Tabs en Tours y Tarifas) */
+html.light button[class*="bg-zinc-800"] {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+/* Modal de descarga en modo día */
+html.light .bg-\[\#0e0e11\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Scrollbar en modo día */
+html.light ::-webkit-scrollbar-track {
+  background: #f8fafc !important;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   AISLAMIENTO DEL MOCKUP ANDROID (Mantiene pantalla real de la app)
+   ========================================================================== */
+
+.phone-mockup-screen {
+  color-scheme: dark;
+}
+.phone-mockup-screen [class*="bg-[#121215]"] {
+  background-color: #121215 !important;
+}
+.phone-mockup-screen [class*="bg-zinc-900"] {
+  background-color: #18181b !important;
+}
+.phone-mockup-screen [class*="bg-zinc-800"] {
+  background-color: #27272a !important;
+}
+.phone-mockup-screen [class*="bg-white"] {
+  background-color: #ffffff !important;
+}
+.phone-mockup-screen [class*="text-white"] {
+  color: #ffffff !important;
+}
+.phone-mockup-screen [class*="text-zinc-200"] {
+  color: #e4e4e7 !important;
+}
+.phone-mockup-screen [class*="text-zinc-400"] {
+  color: #a1a1aa !important;
+}
+.phone-mockup-screen [class*="text-zinc-500"] {
+  color: #71717a !important;
+}
+.phone-mockup-screen [class*="text-zinc-800"] {
+  color: #27272a !important;
+}
+.phone-mockup-screen [class*="text-zinc-900"] {
+  color: #18181b !important;
+}
+.phone-mockup-screen [class*="border-zinc-800"] {
+  border-color: #27272a !important;
+}

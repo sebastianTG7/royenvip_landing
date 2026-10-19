@@ -1,0 +1,6 @@
+{
+  "name": "Royen VVIP | Movilidad Premium y App Oficial Android",
+  "description": "Sitio web oficial de descarga para la aplicación Royen VVIP en Google Play Store para Android. Movilidad privada, tours y envíos seguros.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
